@@ -1,49 +1,39 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>ストーリー投稿</title>
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Firebase CDN (compat 版) -->
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
-
-  <!-- Firebase config & logic -->
-  <script src="firebaseConfig.js"></script>
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- ヘッダーを読み込む -->
-  <?php include("common/header.php"); ?>
+  <?php include 'common/header.php'; ?>
+  
+<div class="form-container" id="form-container">
+  <h2>ストーリーを投稿する</h2>
+  <form id="story-form">
+    <div class="form-group">
+      <label for="title">タイトル</label>
+      <input type="text" id="title" required>
+    </div>
+    <div class="form-group">
+      <label for="summary">要約</label>
+      <textarea id="summary" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="story">本文</label>
+      <textarea id="story" required></textarea>
+    </div>
+    <button type="submit" class="submit-button">投稿する</button>
+  </form>
+  <div id="status"></div>
+</div>
 
-  <div class="form-container">
-    <h2>ストーリーを投稿する</h2>
-    <form>
-      <div class="form-group">
-        <label for="reason">うつ病になった経緯</label>
-        <textarea id="reason" name="reason"></textarea>
-      </div>
-      <div class="form-group">
-        <label for="pain">どんなときがつらかったか</label>
-        <textarea id="pain" name="pain"></textarea>
-      </div>
-      <div class="form-group">
-        <label for="recovery">それをどう乗り越えたか／乗り越えたいか</label>
-        <textarea id="recovery" name="recovery"></textarea>
-      </div>
-      <div class="form-group">
-        <label for="message">読む人へ伝えたいこと</label>
-        <textarea id="message" name="message"></textarea>
-      </div>
-      <button type="submit" class="submit-button">投稿する</button>
-    </form>
-  </div>
+<div class="form-container" id="login-warning" style="display:none;">
+  <p>投稿にはログインが必要です。<a href="login.php">こちら</a>からログインしてください。</p>
+</div>
 
+<script type="module" src="post.js"></script>
 
-  <!-- フッダーを読み込む -->
-  <?php include("common/footer.php"); ?>
-
+  <footer>© 2025 ストーリー・データベース</footer>
 </body>
 </html>

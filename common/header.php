@@ -1,14 +1,11 @@
-<!-- ヘッダーの型 -->
-
 <header>
-  <div class="logo">
-    <a href="index.php">ストーリー・<br>データベース</a>
-  </div>
-
+  <a href="index.php" class="logo">ストーリー・<br>データベース</a>
   <div class="nav-buttons">
-    <a href="passion.php">想い</a>
-    <button onclick="location.href='index.php'">ストーリーを読む</button>
-    <button onclick="location.href='post.php'">投稿する</button>
-    <button onclick="location.href='post.php'">ログイン</button>
+    <a href="index.php"><button>ストーリーを読む</button></a>
+    <a href="post.php"><button>投稿する</button></a>
+    <a href="login.php" id="login-link"><button>ログイン</button></a>
+    <span id="user-info" style="margin-left:10px;"></span>
+    <button id="logout-btn" style="display:none;">ログアウト</button>
   </div>
 </header>
+<script type="module" src="auth.js"></script>
